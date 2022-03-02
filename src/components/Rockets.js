@@ -34,7 +34,7 @@ const Rockets = () => {
           <div className={styles.cardItems}>
             <h3>{rocket.names}</h3>
             <p>
-              <span className={rocket.reserve ? styles.badge : styles.noBadge}>
+              <span className={rocket.reserved ? styles.badge : styles.noBadge}>
                 Reserved
               </span>
               {rocket.description}
@@ -44,7 +44,9 @@ const Rockets = () => {
                 id={rocket.id}
                 className={styles.cancelRocket}
                 type="button"
-                onClick={cancelReserve}
+                onClick={(e) => {
+                  cancelReserve(e.target.id);
+                }}
               >
                 Cancel Reservation
               </button>

@@ -5,7 +5,6 @@ import { fetchMissions } from '../redux/missions/missions';
 
 const Mission = () => {
   const missions = useSelector((state) => state.missions.missions);
-  console.log(missions);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,8 +44,8 @@ const Mission = () => {
             </div>
             <div className={styles.headerText}>
               {element.isUserJoinedToMission
-                ? <button type="button" className={styles.joinMissionButton}> JOIN MISSION </button>
-                : <button type="button" className={styles.leaveMissionButton}> LEAVE MISSION </button>}
+                ? <button type="button" className={styles.leaveMissionButton}> LEAVE MISSION </button>
+                : <button type="button" className={styles.joinMissionButton}> JOIN MISSION </button> }
             </div>
           </li>
         </Fragment>

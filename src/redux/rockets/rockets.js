@@ -76,21 +76,21 @@ const rocketReducer = (state = initialState, action) => {
         error: action.payload,
       };
     case RESERVE_ROCKET:
-      const newState = state.rockets.map((item) => {
-        if (item.id === action.payload) {
-          return { ...item, reserved: !item.reserved };
+      const currentState = state.rockets.map((rocket) => {
+        if (rocket.id === action.payload) {
+          return { ...rocket, reserved: !rocket.reserved };
         }
-        return item;
+        return rocket;
       });
-      return { ...state, rockets: newState };
+      return { ...state, rockets: currentState };
     case CANCEL_RESERVATION:
-      const newStateR = state.rockets.map((item) => {
+      const cancelState = state.rockets.map((item) => {
         if (item.id === action.payload) {
-          return { ...item, reserved: !item.reserved };
+          return { ...item, reserved: item.reserved };
         }
         return item;
       });
-      return { ...state, rockets: newStateR };
+      return { ...state, rockets: cancelState };
     default:
       return state;
   }

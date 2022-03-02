@@ -1,0 +1,61 @@
+.missionGridContainer {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1.2fr 1fr;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.missionGridGreyContainerColor {
+  background: rgb(247, 246, 246);
+}
+
+.headerText {
+  /* border: 1px solid black; */
+  border: 1px black;
+  border-style: none solid solid solid;
+  padding: 10px;
+  height: 100%;
+}
+
+.headerTextTopGridBlackBorder {
+  border-top: 1px solid black;
+}
+
+.missionSectionContainer {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.notActiveMemberButton {
+  background: rgb(90, 87, 87);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: auto;
+}
+
+.activeMemberButton {
+  background: rgb(44, 185, 204);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: auto;
+}
+
+.joinMissionButton {
+  border: 0.5px solid black;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.leaveMissionButton {
+  background-color: white;
+  border-radius: 5px;
+  border: 0.5px solid rgba(245, 72, 72, 0.911);
+  color: rgba(245, 72, 72, 0.911);
+  padding: 5px;
+  cursor: pointer;
+}

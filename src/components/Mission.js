@@ -1,68 +1,58 @@
-import React from 'react';
+import { useEffect, Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './styles/Mission.module.css';
+import { fetchMissions } from '../redux/missions/missions';
 
-const missions = [{
-  mission: 'MISSION 1',
-  description: `Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem 
- Ipsum Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
- Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum`,
-  isUserJoinedToMission: false,
-}, {
-  mission: 'MISSION 2',
-  description: `Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem 
-  Ipsum Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
-  Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum`,
-  isUserJoinedToMission: false,
-}, {
-  mission: 'MISSION 3',
-  description: `Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem 
-  Ipsum Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
-  Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum`,
-  isUserJoinedToMission: true,
-}, {
-  mission: 'MISSION 4',
-  description: `Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem 
-  Ipsum Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum
-  Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum`,
-  isUserJoinedToMission: false,
-}];
+const Mission = () => {
+  const missions = useSelector((state) => state.missions.missions);
+  console.log(missions);
+  const dispatch = useDispatch();
 
-const Mission = () => (
-  <section className={styles.missionSectionContainer}>
-    <div className={styles.missionGridContainer}>
-      <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`}>
-        MISSIONS
-      </div>
-      <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`}>
-        DESCRIPTION
-      </div>
-      <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`}>
-        STATUS
-      </div>
-      <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`} />
-    </div>
+  useEffect(() => {
+    if (!missions.length) {
+      dispatch(fetchMissions());
+    }
+  }, []);
 
-    {missions.map((element, index) => (
-      <div className={`${styles.missionGridContainer} ${index % 2 === 1 ? styles.missionGridGreyContainerColor : ''}`}>
-        <div className={styles.headerText}>
-          {element.mission}
+  return (
+    <section className={styles.missionSectionContainer}>
+      <li className={styles.missionGridContainer} key="1">
+        <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`}>
+          MISSIONS
         </div>
-        <div className={styles.headerText}>
-          {element.description}
+        <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`}>
+          DESCRIPTION
         </div>
-        <div className={styles.headerText}>
-          {element.isUserJoinedToMission
-            ? <div className={styles.activeMemberButton}> ACTIVE MEMBER </div>
-            : <div className={styles.notActiveMemberButton}> NOT A MEMBER</div>}
+        <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`}>
+          STATUS
         </div>
-        <div className={styles.headerText}>
-          {element.isUserJoinedToMission
-            ? <button type="button" className={styles.joinMissionButton}> JOIN MISSION </button>
-            : <button type="button" className={styles.leaveMissionButton}> LEAVE MISSION </button>}
-        </div>
-      </div>
-    ))}
-  </section>
-);
+        <div className={`${styles.headerText} ${styles.headerTextTopGridBlackBorder}`} />
+      </li>
+
+      {missions.map((element, index) => (
+        <Fragment key={element.id}>
+          <li className={`${styles.missionGridContainer} ${index % 2 === 1 ? styles.missionGridGreyContainerColor : ''}`}>
+            <div className={styles.headerText}>
+              {element.missionName}
+            </div>
+            <div className={styles.headerText}>
+              {element.description}
+            </div>
+            <div className={styles.headerText}>
+              {element.isUserJoinedToMission
+                ? <div className={styles.activeMemberButton}> ACTIVE MEMBER </div>
+                : <div className={styles.notActiveMemberButton}> NOT A MEMBER</div>}
+            </div>
+            <div className={styles.headerText}>
+              {element.isUserJoinedToMission
+                ? <button type="button" className={styles.joinMissionButton}> JOIN MISSION </button>
+                : <button type="button" className={styles.leaveMissionButton}> LEAVE MISSION </button>}
+            </div>
+          </li>
+        </Fragment>
+      ))}
+    </section>
+  );
+};
 
 export default Mission;

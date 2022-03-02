@@ -60,11 +60,10 @@ const missionReducer = (state = initialState, action) => {
     case FETCHING_MISSIONS_FAILED:
       return {
         ...state,
-        // loading: false,
         error: action.payload,
       };
     case CHANGE_MISSION_STATUS: {
-      const newState = state.rockets.map((item) => {
+      const newState = state.missions.map((item) => {
         if (item.id === action.payload) {
           return { ...item, isUserJoinedToMission: !item.isUserJoinedToMission };
         }

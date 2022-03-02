@@ -1,11 +1,16 @@
 import { useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './styles/Mission.module.css';
-import { fetchMissions } from '../redux/missions/missions';
+import { fetchMissions, changeMissionStatus } from '../redux/missions/missions';
 
 const Mission = () => {
   const missions = useSelector((state) => state.missions.missions);
   const dispatch = useDispatch();
+
+  const changeMissionStatusEventListener = (event) => {
+    event.preventDefault();
+    dispatch(changeMissionStatus(event.target.parentElement.parentElement.id));
+  };
 
   useEffect(() => {
     if (!missions.length) {
@@ -30,7 +35,7 @@ const Mission = () => {
 
       {missions.map((element, index) => (
         <Fragment key={element.id}>
-          <li className={`${styles.missionGridContainer} ${index % 2 === 1 ? styles.missionGridGreyContainerColor : ''}`}>
+          <li id={element.id} className={`${styles.missionGridContainer} ${index % 2 === 1 ? styles.missionGridGreyContainerColor : ''}`}>
             <div className={styles.headerText}>
               {element.missionName}
             </div>
@@ -44,8 +49,8 @@ const Mission = () => {
             </div>
             <div className={styles.headerText}>
               {element.isUserJoinedToMission
-                ? <button type="button" className={styles.leaveMissionButton}> LEAVE MISSION </button>
-                : <button type="button" className={styles.joinMissionButton}> JOIN MISSION </button> }
+                ? <button type="button" className={styles.leaveMissionButton} onClick={changeMissionStatusEventListener}> LEAVE MISSION </button>
+                : <button type="button" className={styles.joinMissionButton} onClick={changeMissionStatusEventListener}> JOIN MISSION </button> }
             </div>
           </li>
         </Fragment>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRockets } from '../redux/rockets/rockets';
+import styles from './styles/Rockets.module.css';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rockets.rockets);
@@ -13,11 +14,22 @@ const Rockets = () => {
     }
   }, []);
   return (
-    <div>
+    <section>
       {rockets.map((rocket) => (
-        <img src={rocket.images} key={rocket.id} alt={rocket.names} />
+        <div className={styles.rocketSection} key={rocket.id}>
+          <div className={styles.card} key={rocket}>
+            <img src={rocket.images} alt={rocket.names} />
+          </div>
+          <div className={styles.cardItems}>
+            <h3>{rocket.names}</h3>
+            <p>{rocket.description}</p>
+            <button className={styles.button} type="button">
+              Reserve Rocket
+            </button>
+          </div>
+        </div>
       ))}
-    </div>
+    </section>
   );
 };
 

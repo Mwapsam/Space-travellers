@@ -8,13 +8,19 @@
 }
 
 .nav {
-  padding: 10px 10vw;
+  padding: 10px 10vw 10px 25px;
   display: flex;
   justify-content: space-between;
 }
 
 .logo {
   height: 60px;
+}
+
+.logoItems {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .navItems {
@@ -24,6 +30,17 @@
 
 .linkItem {
   margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.linkItem:hover {
+  color: rgb(3, 95, 95);
+}
+
+.linkItem:focus {
+  color: rgb(4, 4, 190);
 }
 
 .linkItem img {
@@ -51,4 +68,20 @@
 
 .link:hover {
   opacity: 1;
+}
+
+.logoTheme {
+  color: #000;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.line {
+  border-left: 2px solid #535353;
+  height: 30px;
+}
+
+.profiles{
+  padding-left: 17px;
 }

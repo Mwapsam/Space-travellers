@@ -34,6 +34,23 @@
   transition: all 0.2s;
 }
 
+.cancelRocket {
+  display: inline-block;
+  width: 180px;
+  padding: 1em 1.2em;
+  border: 0.1em solid #fff;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #fff;
+  background-color: rgb(243, 6, 25);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
 .cardItems {
   display: flex;
   flex-direction: column;
@@ -56,4 +73,16 @@
 .button:hover {
   color: #fff;
   background-color: rgb(3, 180, 3);
+}
+
+.badge {
+  background: rgb(3, 159, 187);
+  padding: 4px;
+  margin-right: 8px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.noBadge {
+  display: none;
 }

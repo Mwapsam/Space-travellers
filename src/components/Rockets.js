@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRockets } from '../redux/rockets/rockets';
+import {
+  fetchRockets,
+  reserve,
+  cancelReservation,
+} from '../redux/rockets/rockets';
 import styles from './styles/Rockets.module.css';
 
 const Rockets = () => {
@@ -9,10 +13,17 @@ const Rockets = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!rockets.length) {
-      dispatch(fetchRockets());
-    }
+    dispatch(fetchRockets());
   }, []);
+
+  const handleReserve = (id) => {
+    dispatch(reserve(id));
+  };
+
+  const cancelReserve = (id) => {
+    dispatch(cancelReservation(id));
+  };
+
   return (
     <section>
       {rockets.map((rocket) => (
@@ -22,10 +33,35 @@ const Rockets = () => {
           </div>
           <div className={styles.cardItems}>
             <h3>{rocket.names}</h3>
-            <p>{rocket.description}</p>
-            <button className={styles.button} type="button">
-              Reserve Rocket
-            </button>
+            <p>
+              <span className={rocket.reserved ? styles.badge : styles.noBadge}>
+                Reserved
+              </span>
+              {rocket.description}
+            </p>
+            {rocket.reserved ? (
+              <button
+                id={rocket.id}
+                className={styles.cancelRocket}
+                type="button"
+                onClick={(e) => {
+                  cancelReserve(e.target.id);
+                }}
+              >
+                Cancel Reservation
+              </button>
+            ) : (
+              <button
+                id={rocket.id}
+                className={styles.button}
+                type="button"
+                onClick={(e) => {
+                  handleReserve(e.target.id);
+                }}
+              >
+                Reserve Rocket
+              </button>
+            )}
           </div>
         </div>
       ))}

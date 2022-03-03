@@ -7,7 +7,13 @@ const Navbar = () => (
   <>
     <nav className={styles.navbar}>
       <div className={styles.nav}>
-        <img src={logo} className={styles.logo} alt="" />
+        <div className={styles.logoItems}>
+          <img src={logo} className={styles.logo} alt="" />
+          <Link className={styles.logoTheme} to="/">
+            Space Travellers` Hub
+          </Link>
+        </div>
+
         <div className={styles.navItems}>
           <Link className={styles.linkItem} to="/">
             Rockets
@@ -15,9 +21,12 @@ const Navbar = () => (
           <Link className={styles.linkItem} to="/missions">
             Missions
           </Link>
-          <Link className={styles.linkItem} to="/profile">
-            My Profile
-          </Link>
+          <div className={styles.profiles}>
+            <span className={styles.line} />
+            <Link className={styles.linkItem} to="/profile">
+              My Profile
+            </Link>
+          </div>
         </div>
       </div>
       <Outlet />

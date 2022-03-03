@@ -38,7 +38,7 @@ export const fetchRockets = () => async (dispatch) => {
       loadRockets(
         rockets.map((rocket) => {
           const {
-            id,
+            rocket_id: id,
             rocket_name: names,
             flickr_images: images,
             description,
@@ -77,7 +77,7 @@ const rocketReducer = (state = initialState, action) => {
       };
     case RESERVE_ROCKET:
       const currentState = state.rockets.map((rocket) => {
-        if (rocket.id !== action.payload) {
+        if (rocket.id === action.payload) {
           return { ...rocket, reserved: !rocket.reserved };
         }
         return rocket;
@@ -85,7 +85,7 @@ const rocketReducer = (state = initialState, action) => {
       return { ...state, rockets: currentState };
     case CANCEL_RESERVATION:
       const cancelState = state.rockets.map((item) => {
-        if (item.id !== action.payload) {
+        if (item.id === action.payload) {
           return { ...item, reserved: !item.reserved };
         }
         return item;

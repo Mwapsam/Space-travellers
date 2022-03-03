@@ -1,52 +1,55 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Space Travellers' Hub
 
-> Description the project.
+> This is a Space Travellers' website for making rocket reservations based on SpaceX API. It represents a fictional company that provides commercial and scientific space travel services. The application allows users to book rockets and join selected space missions.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- JavaScript & CSS
+- React JS
+- Redux, Webpack, Babel and Jest 
 
-## Live Demo (if available)
+## Live Demo 
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://space-travellers-hub.herokuapp.com/)
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+- Node JS
 
 ### Setup
+git clone https://github.com/Mwapsam/Space-travellers.git
 
 ### Install
+npm install
 
 ### Usage
+npm start
 
 ### Run tests
+npm test
 
 ### Deployment
+npm run build
 
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Mwape**
 
 - GitHub: [@githubhandle](https://github.com/githubhandle)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Author2**
+👤 **Alick**
 
 - GitHub: [@githubhandle](https://github.com/githubhandle)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)

@@ -45,9 +45,9 @@ npm run build
 
 👤 **Mwape**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@mwapsam](https://github.com/Mwapsam)
+- Twitter: [@mwapesamuel4](https://twitter.com/mwapesamuel4)
+- LinkedIn: [mwapsam](https://www.linkedin.com/in/mwapsam/)
 
 👤 **Alick**
 
@@ -59,7 +59,7 @@ npm run build
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Mwapsam/Space-travellers/issues/).
 
 ## Show your support
 

@@ -8,7 +8,7 @@
 }
 
 .nav {
-  padding: 10px 10vw;
+  padding: 10px 10vw 10px 25px;
   display: flex;
   justify-content: space-between;
 }

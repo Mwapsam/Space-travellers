@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMissions } from '../redux/missions/missions';
 import { fetchRockets } from '../redux/rockets/rockets';
-import styles from './styles/Profiles.modules.css';
+import styles from './styles/Profile.module.css';
 
 const Profile = () => {
   const profile = useSelector((state) => state.rockets.rockets);
@@ -20,23 +20,25 @@ const Profile = () => {
   const missionReserve = missions.filter(
     (mission) => mission.isUserJoinedToMission === true && mission,
   );
-
   return (
     <>
       <section className={styles.profileSection}>
-        {missionReserve.map((showMissions) => (
-          <div className={styles.missionsCard} key={showMissions.id}>
-            <h2 className={styles.missionsName}>My Missions</h2>
-            <h3>{showMissions.missionName}</h3>
-          </div>
-        ))}
-
-        {reserveData.map((flights) => (
-          <div className={styles.rocketsCard} key={flights.id}>
-            <h2 className={styles.rocketsName}>My Rockets</h2>
-            <h3>{flights.names}</h3>
-          </div>
-        ))}
+        <div className={styles.missionsCard}>
+          <h2 className={styles.missionsName}>My Missions</h2>
+          {missionReserve.map((showMissions) => (
+            <div key={showMissions.id}>
+              <h4 className={styles.name}>{showMissions.missionName}</h4>
+            </div>
+          ))}
+        </div>
+        <div className={styles.rocketsCard}>
+          <h2 className={styles.rocketsName}>My Rockets</h2>
+          {reserveData.map((flights) => (
+            <div key={flights.id}>
+              <h4 className={styles.name}>{flights.names}</h4>
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );

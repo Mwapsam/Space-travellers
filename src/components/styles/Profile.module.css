@@ -1,0 +1,13 @@
+.profileSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5%;
+}
+
+.profileSection,
+.missionsName,
+.rocketsName,
+.name {
+  border: 1px solid;
+  padding: 2rem;
+}

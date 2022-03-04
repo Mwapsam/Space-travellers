@@ -51,9 +51,9 @@ npm run build
 
 👤 **Alick**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@alicknyerende](https://github.com/Beardless-sheik)
+- Twitter: [@beardless_sheik](https://twitter.com/Beardless_Sheik)
+- LinkedIn: [Alick Nyirenda](https://www.linkedin.com/in/alick-nyirenda/)
 
 ## 🤝 Contributing
 
